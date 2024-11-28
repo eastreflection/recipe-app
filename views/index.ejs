@@ -1,0 +1,7 @@
+<!-- looping over each array to display each recipe -->
+<ul>
+    <% recipes.forEach(recipe=> { %>
+        <li> <a href="/recipes/<%= recipe.id %>"> <%= recipe.title %></a>
+        </li>
+    <% }) %>
+</ul>
