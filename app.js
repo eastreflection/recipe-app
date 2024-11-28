@@ -30,6 +30,22 @@ app.get('/add-recipe', (req, res) => {
     res.render('add-recipe');
 })
 
+app.get('/recipes/:id', (req, res) => {
+    const recipe = recipes.find(r => r.id == req.params.id);
+    if (recipe) {
+        res.render('recipe-details', { recipe })
+    } else {
+        res.status(404).send('Recipe not found 404')
+    }
+})
+
+app.post('edit-recipe/:id', (req, res)=>{
+    const { title, ingredients, instructions };
+    const recipeIndex = recipes.findIndex(r => r.id == req.params.id);
+    recipes[recipeIndex] = { ...recipes[recipeIndex], title, ingredients, instructions };
+    res.redirect('/');
+})
+
 app.listen(3000, ()}=> {
     console.log('Server is running on localhost:3000')
 })
