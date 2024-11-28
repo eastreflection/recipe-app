@@ -1,7 +1,33 @@
-<!-- looping over each array to display each recipe -->
+<!-- looping over each array to display each recipe
 <ul>
     <% recipes.forEach(recipe=> { %>
         <li> <a href="/recipes/<%= recipe.id %>"> <%= recipe.title %></a>
         </li>
     <% }) %>
-</ul>
+</ul> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe List</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Recipe List</h1>
+
+    <a href="/add-recipe">Add New Recipe</a>
+
+    <ul>
+        <% recipes.forEach(recipe => { %>
+            <li>
+                <h2><a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a></h2>
+                <a href="/edit-recipe/<%= recipe.id %>">Edit</a>
+                <form action="/delete-recipe/<%= recipe.id %>" method="POST" style="display:inline;">
+                <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
