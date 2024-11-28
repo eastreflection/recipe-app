@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Recipe</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container mx-auto p-6">
-        <h1 class="text 2xl font-bold">Add Recipe</h1>
-   <form class="mt-4 space-y-4" action="/add-recipe" method="POST">
-        <input type="text" name="Title" id="" placeholder="Recipe Title">
-        <textarea name="Ingredients" placeholder="Ingredients"></textarea>
-        <textarea name="Instructions" placeholer="Instructions"></textarea>
-        <button type="submit">Add Recipe</button>
-    </form>
-</div>
+        <h1 class="text-3xl font-bold mb-6">Add Recipe</h1>
+
+        <form action="/add-recipe" method="POST">
+            <label for="title" class="block mb-2 font-bold">Recipe Title</label>
+            <input type="text" id="title" name="title" value="" class="w-full mb-4 p-2 border" required>
+
+            <label for="ingredients" class="block mb-2 font-bold">Ingredients</label>
+            <textarea id="ingredients" name="ingredients" class="w-full mb-4 p-2 border" required></textarea>
+
+            <label for="instructions" class="block mb-2 font-bold">Instructions</label>
+            <textarea id="instructions" name="instructions" class="w-full mb-4 p-2 border" required></textarea>
+
+            <button type="submit" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                Add Recipe
+            </button>
+        </form>
+
+        <a href="/" class="text-blue-500 underline mt-4 block">Back to Recipe List</a>
+    </div>
 </body>
 </html>

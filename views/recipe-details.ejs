@@ -1,20 +1,34 @@
-<div>
-    <h1 class="text-3xl font-bold">
-        <%= recipe.title %>
-    </h1>
-    <p class="mt-4">
-        <strong>Ingredients:</strong>
-        <%= recipe.ingredients%>
-    </p>
-    <p> <strong>Instructions:</strong>
-        <%= recipe.instructions%>
-    </p>
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- adding the delete button -->
-    <form action="/delete-recipe/<% recipe.id %>" method="post" style "top: 20px;">
-        <button type="submit" class = "bg-red-500 hove:bg-red-700 text-white font-bold py-2 px-4 rounded">
-            Delete Recipe
-        </button>
-    </form>
-    <a href="/" class="text-blue-500 underline">Back to Recipe List</a>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Recipe</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6">
+            <%= recipe.title %>
+        </h1>
+        <p>
+            <strong class="block font-bold">Ingredients:</strong><br>
+            <%= recipe.ingredients%>
+        </p><br>
+        <p> <strong class="block font-bold">Instructions:</strong><br>
+            <%= recipe.instructions%>
+        </p><br>
+
+        <!-- adding the delete button -->
+        <form action="/delete-recipe/<% recipe.id %>" method="post" style "top: 20px;">
+            <button type="submit" class="bg-red-500 hove:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                Delete Recipe
+            </button>
+        </form>
+        <a href="/" class="text-blue-500 underline">Back to Recipe List</a>
+    </div>
+</body>
+
+</html>
